@@ -1,271 +1,157 @@
-* {
-  box-sizing: border-box;
+body {
+    width: 100%;
+    min-height: 100vh;	
+    background-image: repeating-linear-gradient(
+        to bottom right,
+        hsl(0deg, 80%, 50%),
+        hsl(60deg, 80%, 50%),
+        hsl(120deg, 80%, 50%),
+        hsl(180deg, 80%, 50%),
+        hsl(240deg, 80%, 50%),
+        hsl(300deg, 80%, 50%),
+        hsl(360deg, 80%, 50%) 50%
+    );
+    background-size: 1000% 1000%;
+    animation: colorRotation 240s linear 0s infinite;
 }
 
+@keyframes colorRotation {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 500% 500%;
+	}
+}
+.container {
+	width: 100%;
+	height: 32vw;
+	background: url('https://livedoor.blogimg.jp/redcomet2ch/imgs/e/9/e92315e4-s.jpg') repeat-x;
+	background-size: 50%;
+	animation: scroll-anim 15s linear infinite;
+}
+
+@keyframes scroll-anim {
+	100% {
+		background-position: -100% 0;
+	}
+}
+
+/* 全体のスタイル */
 body {
   margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN";
+  font-family: Arial, sans-serif;
 }
 
-a {
-  text-decoration: none;
-}
-
-.container {
-  width: 100%;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
-.top-wrapper {
-  padding: 180px 0 100px 0;
-  background-image: url(top.png);
-  background-size: cover;
-  color: white;
-  text-align: center;
-}
-
-.top-wrapper h1 {
-  opacity: 0.7;
-  font-size: 45px;
-  letter-spacing: 5px;
-}
-
-.top-wrapper p {
-  opacity: 0.7;
-  font-size: 16px;
-  margin-bottom: 40px;
-}
-
-.btn-wrapper {
-  text-align: center;
-}
-
-.btn-wrapper p {
-  margin-bottom: 20px;
-}
-
-.signup {
-  background-color: #239b76;
-}
-
-.facebook {
-  background-color: #3b5998;
-  margin-right: 10px;
-}
-
-.twitter {
-  background-color: #55acee;
-}
-
-.btn {
-  padding: 8px 24px;
-  color: white;
-  display: inline-block;
-  opacity: 0.8;
-  border-radius: 4px;
-  text-align: center;
-}
-
-.btn:hover {
-  opacity: 1;
-}
-
-.fa {
-  margin-right: 5px;
-}
-
-header {
-  height: 65px;
-  width: 100%;
-  background-color: rgba(34,49,52,0.9);
-  position :fixed;
+/* メニューコンテナ全体のスタイル */
+.menu-container {
+  position: fixed;
   top: 0;
-  z-index: 10;
-}
-
-.logo {
-  width: 124px;
-  margin-top: 20px;
-}
-
-.header-left {
-  float: left;
-}
-
-.header-right {
-  float: right;
-  margin-right: -25px;
-}
-
-.header-right a {
-  line-height: 65px;
-  padding: 0 25px;
-  color: white;
-  display: block;
-  float: left;
-  transition: all 0.5s;
-}
-
-.header-right a:hover {
-  background-color: rgba(255,255,255,0.3);
-}
-
-.lesson-wrapper {
-  height: 580px;
-  padding-bottom: 80px;
-  padding-left: 5%;
-  padding-right: 5%;
-  background-color: #f7f7f7;
-  text-align: center;
-}
-
-.heading {
-  padding-top: 80px;
-  padding-bottom: 50px;
-  color: #5f5d60;
-}
-
-.heading h2 {
-  font-weight: normal;
-}
-
-.lesson {
-  float: left;
-  width: 25%;
-}
-
-.lesson-icon {
-  position: relative;
-}
-
-.lesson-icon p {
-  position: absolute;
-  top: 37%;
+  left: 0;
   width: 100%;
-  color: white;
+  height: 100%;
+  overflow: hidden;
 }
 
-.text-contents {
-  width: 80%;
-  display: inline-block;
-  margin-top: 15px;
-  font-size: 13px;
-  color: #b3aeb5;
-}
-
-.heading h3 {
-  font-weight: normal;
-}
-
-.message-wrapper {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 80px;
-  text-align: center;
-}
-
-.message {
-  padding: 15px 40px;
-  background-color: #5dca88;
+/* メニューボタンのスタイル */
+.menu-button {
+  display: block;
+  position: fixed;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
-  box-shadow: 0px 7px #1a7940;
+  z-index: 2;
 }
 
-.message:active {
-  position: relative;
-  top: 7px;
-  box-shadow: none;
+/* メニューバーのスタイル */
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #333;
+  transition: 0.4s;
 }
 
-footer img {
-  width: 125px;
+/* メニューボタンがチェックされた場合の1つ目のバーのアニメーション */
+#menu-toggle:checked ~ .menu-button .bar:nth-child(1) {
+  transform: rotate(45deg) translate(-2px, 3px);
 }
 
-footer p {
-  color: #b3aeb5;
-  font-size: 12px;
+/* メニューボタンがチェックされた場合の2つ目のバーのアニメーション */
+#menu-toggle:checked ~ .menu-button .bar:nth-child(2) {
+  opacity: 0;
 }
 
-footer {
-  padding-top: 30px;
-  padding-bottom: 20px;
+/* メニューボタンがチェックされた場合の3つ目のバーのアニメーション */
+#menu-toggle:checked ~ .menu-button .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -13px);
 }
 
-.menu-icon {
-  color: white;
-  float: right;
-  font-size: 25px;
-  padding: 21px 0;
+/* メニュートグルのスタイル */
+#menu-toggle {
   display: none;
 }
 
-.clear {
-  clear: left;
+/* メニューのスタイル */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%; /* 変更: メニューを左からスライドインさせるために left に設定 */
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f3;
+  transition: 0.4s;
+  z-index: 1;
+  overflow-y: auto;
 }
 
-@media all and (max-width: 1000px) {
-  .lesson {
-    width: 50%;
-    margin-bottom: 50px;
-  }
-
-  .lesson-wrapper {
-    height: 990px;
-  }
-
-  footer {
-    text-align: center;
-  }
+/* メニュートグルがチェックされた場合のメニューの表示アニメーション */
+#menu-toggle:checked ~ .menu {
+  left: 0; /* メニューを表示させるために left を 0 に変更 */
 }
 
-@media all and (max-width: 750px) {
-  .top-wrapper h1 {
-    font-size: 32px;
-  }
-
-  .heading h2 {
-    font-size: 20px;
-  }
+/* メニュー内のリストのスタイル */
+.menu ul {
+  list-style: none;
+  padding: 20px;
 }
 
-@media all and (max-width: 670px) {
-  .header-right {
-    display: none;
-  }
+/* メニュー内リストのリンクのスタイル */
+.menu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  display: block;
+  padding: 10px 0;
+  transition: 0.2s;
+}
 
-  .menu-icon {
-    display: block;
-  }
+/* メニュー内リストのリンクのホバー時のスタイル */
+.menu ul li a:hover {
+  color: #bf7497;
+}
 
-  .top-wrapper .btn {
-    width: 100%;
-  }
+.sticky {
+    postion: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
 
-  .twitter {
-    margin-top: 10px;
-  }
+.moji {
+ position: absolute;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+}
 
-  .top-wrapper {
-    text-align: left;
-  }
-
-  .top-wrapper h1 {
-    font-size: 24px;
-  }
-
-  .top-wrapper p {
-    font-size: 14px;
-  }
-
-  .lesson {
-    width: 100%;
-  }
-
-  .lesson-wrapper {
-    height: 1700px;
-  }
-
-  .message-wrapper .btn {
-    width: 100%;
-  }
+.moji2 {
+ position: absolute;
+  position: absolute;
+  top: 230%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
 }
