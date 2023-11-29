@@ -1,3 +1,28 @@
+body {
+    width: 100%;
+    min-height: 100vh;	
+    background-image: repeating-linear-gradient(
+        to bottom right,
+        hsl(0deg, 80%, 50%),
+        hsl(60deg, 80%, 50%),
+        hsl(120deg, 80%, 50%),
+        hsl(180deg, 80%, 50%),
+        hsl(240deg, 80%, 50%),
+        hsl(300deg, 80%, 50%),
+        hsl(360deg, 80%, 50%) 50%
+    );
+    background-size: 1000% 1000%;
+    animation: colorRotation 240s linear 0s infinite;
+}
+
+@keyframes colorRotation {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 500% 500%;
+	}
+}
 pre,textarea{overflow:auto}
 [hidden],audio:not([controls]),template{display:none}
 details,main,summary{display:block}
