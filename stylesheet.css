@@ -1019,13 +1019,13 @@ body {
     min-height: 100vh;	
     background-image: repeating-linear-gradient(
         to bottom right,
-        hsl(0deg, 80%, 50%),
-        hsl(60deg, 80%, 50%),
-        hsl(120deg, 80%, 50%),
-        hsl(180deg, 80%, 50%),
-        hsl(240deg, 80%, 50%),
-        hsl(300deg, 80%, 50%),
-        hsl(360deg, 80%, 50%) 50%
+        hsl(0deg, 80%, 50%,0.5),
+        hsl(60deg, 80%, 50%,0.5),
+        hsl(120deg, 80%, 50%,0.5),
+        hsl(180deg, 80%, 50%,0.5),
+        hsl(240deg, 80%, 50%,0.5),
+        hsl(300deg, 80%, 50%,0.5),
+        hsl(360deg, 80%, 50%,0.5) 50%
     );
     background-size: 1000% 1000%;
     animation: colorRotation 240s linear 0s infinite;
