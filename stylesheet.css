@@ -1,6 +1,3 @@
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic);
-@import url(//fonts.googleapis.com/css?family=Gilda+Display);
-
 pre,textarea{overflow:auto}
 [hidden],audio:not([controls]),template{display:none}
 details,main,summary{display:block}
@@ -286,7 +283,7 @@ html>/**/body {
 	cursor:pointer;
 }
 .bx-wrapper .bx-prev {
-	background:url(../../images/164/btn-slider_001.png) 14px center no-repeat #4F4F4F;
+	background: 14px center no-repeat #4F4F4F;
 	left:-38px;
 	border-radius:3px 0 0 3px;
 }
@@ -294,7 +291,7 @@ html>/**/body {
 	opacity:0.8;
 }
 .bx-wrapper .bx-next {
-	background:url(../../images/164/btn-slider_002.png) 15px center no-repeat #4F4F4F;
+	background: 15px center no-repeat #4F4F4F;
 	right:-38px;
 	border-radius:0 3px 3px 0;
 }
@@ -515,7 +512,7 @@ address img{padding:0 0 1px 5px ;}
 	position:fixed;
 	right:20px;
 	bottom:20px;
-	background:url(../../images/164/btn-pagetop_001.png) left top no-repeat;
+	background: left top no-repeat;
 	text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -879,4 +876,38 @@ padding:5px 0 10px 0 ;
 {
     border: #ccc 1px solid;
     padding: 5px;
+}
+body {
+    width: 100%;
+    min-height: 100vh;	
+    background-image: repeating-linear-gradient(
+        to bottom right,
+        hsl(0deg, 80%, 50%),
+        hsl(60deg, 80%, 50%),
+        hsl(120deg, 80%, 50%),
+        hsl(180deg, 80%, 50%),
+        hsl(240deg, 80%, 50%),
+        hsl(300deg, 80%, 50%),
+        hsl(360deg, 80%, 50%) 50%
+    );
+    background-size: 1000% 1000%;
+    animation: colorRotation 240s linear 0s infinite;
+}
+
+@keyframes colorRotation {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 500% 500%;
+	}
+}
+.container {
+    position: absolute;
+  top: 0%;
+	width: 100%;
+	height: 32vw;
+	background: url('https://livedoor.blogimg.jp/redcomet2ch/imgs/e/9/e92315e4-s.jpg') repeat-x;
+	background-size: 50%;
+	animation: scroll-anim 15s linear infinite;
 }
